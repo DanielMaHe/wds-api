@@ -46,6 +46,7 @@ class ProyectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def proyect_params
-      params.require(:proyect).permit(:company, :status, :comment)
+      params.require(:proyect).permit(:company, :status, :comment, images_attributes: [:id, :file])
     end
+
 end
