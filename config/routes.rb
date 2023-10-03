@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :workers
   resources :customers
@@ -7,9 +9,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get "/" => "customers#index"
-  get "/proyects" => "proyects#index"
-  get "/workers" => "workers#index"
-
-
+  get '/' => 'customers#index'
+  get '/proyects' => 'proyects#index'
+  get '/workers' => 'workers#index'
+  post '/login' => 'customers#create'
 end
