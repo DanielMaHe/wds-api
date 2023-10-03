@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Worker < ApplicationRecord
   has_secure_token
   has_secure_password

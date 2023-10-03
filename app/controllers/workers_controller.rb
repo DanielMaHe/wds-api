@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 class WorkersController < ApplicationController
-  before_action :set_worker, only: %i[ show update destroy ]
+  before_action :set_worker, only: %i[show update destroy]
 
   # GET /workers
   def index
     @workers = Worker.all
 
     # render json: @workers
-    render json: {workers: "this is 1"}
-
+    render json: { workers: 'this is 1' }
   end
 
   # GET /workers/1
@@ -41,13 +42,14 @@ class WorkersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_worker
-      @worker = Worker.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def worker_params
-      params.require(:worker).permit(:username, :password, :isAdmin)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_worker
+    @worker = Worker.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def worker_params
+    params.require(:worker).permit(:username, :password, :isAdmin)
+  end
 end
