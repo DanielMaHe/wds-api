@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProyectsController < ApplicationController
-  before_action :set_proyect, only: %i[show update destroy]
+  # before_action :set_proyect, only: %i[show update destroy]
 
   # GET /proyects
   def index
@@ -43,9 +43,9 @@ class ProyectsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_proyect
-    @proyect = Proyect.find(params[:id])
-  end
+  # def set_proyect
+  #   @proyect = Proyect.find(params[:id])
+  # end
 
   # Only allow a list of trusted parameters through.
   def proyect_params
