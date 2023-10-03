@@ -49,3 +49,5 @@ group :development do
 end
 
 gem 'carrierwave'
+
+gem "pundit", "~> 2.3"
