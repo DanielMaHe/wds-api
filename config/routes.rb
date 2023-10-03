@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get '/' => 'customers#index'
-  get '/proyects' => 'proyects#index'
-  get '/workers' => 'workers#index'
-  post '/login' => 'customers#create'
+  # get '/' => 'customers#index'
+  # get '/proyects' => 'proyects#index'
+  # get '/workers' => 'workers#index'
+  # post '/login' => 'customers#create'
 end
