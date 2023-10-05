@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+# This class is to show all proyects
+# Can only be modified under authorization
 class ProyectsController < ApplicationController
   # before_action :set_proyect, only: %i[show update destroy]
+  skip_before_action :authorize, only: %i[index show]
 
   # GET /proyects
   def index
