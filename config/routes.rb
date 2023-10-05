@@ -1,16 +1,17 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  # post 'sessions/create'
+  post '/sessions' => 'sessions#create'
+  delete '/sessions' => 'sessions#destroy'
+
   resources :workers
   resources :customers
   resources :proyects
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-
-  # get '/' => 'customers#index'
+  # get '/customers' => 'customers#index'
+  # post '/customer/' => 'customers#create'
   # get '/proyects' => 'proyects#index'
-  # get '/workers' => 'workers#index'
-  # post '/login' => 'customers#create'
+
+  resources :sessions, only: %i[new create destroy]
 end
