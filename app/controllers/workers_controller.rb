@@ -7,8 +7,8 @@ class WorkersController < ApplicationController
   # GET /workers
   def index
     @workers = Worker.all
-    render json: {current_user: current_user.username,
-      workers: @workers}
+    render json: { current_user: current_user.username,
+                   workers: @workers }
   end
 
   # GET /workers/1

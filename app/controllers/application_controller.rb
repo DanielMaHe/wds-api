@@ -16,11 +16,11 @@ class ApplicationController < ActionController::API
   def authorize
     return if authenticate_token
 
-    respond_unauthorized("Access Desnied")
+    respond_unauthorized('Access Desnied')
   end
 
   def respond_unauthorized(message)
-    render json: {messages: message}, status: :unauthorized
+    render json: { messages: message }, status: :unauthorized
   end
 
   private

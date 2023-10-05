@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   skip_before_action :authorize, only: :create
 
@@ -11,7 +13,7 @@ class SessionsController < ApplicationController
       # Iniciar sesión exitosamente.
       # session[:worker_id] = worker.id
       worker.regenerate_token
-      render json: { token: worker.token}
+      render json: { token: worker.token }
 
     else
       # Error de inicio de sesión.
