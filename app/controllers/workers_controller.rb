@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
+# This class controll the Workers
 class WorkersController < ApplicationController
   before_action :set_worker, only: %i[show update destroy]
 
   # GET /workers
   def index
     @workers = Worker.all
-
-    # render json: @workers
-    render json: { workers: 'this is 1' }
+    render json: {current_user: current_user.username,
+      workers: @workers}
   end
 
   # GET /workers/1
@@ -18,6 +18,8 @@ class WorkersController < ApplicationController
 
   # POST /workers
   def create
+    return unless authorize @worker
+
     @worker = Worker.new(worker_params)
 
     if @worker.save
