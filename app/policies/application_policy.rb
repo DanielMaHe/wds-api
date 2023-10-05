@@ -13,15 +13,16 @@ class ApplicationPolicy
   end
 
   def index?
-    true
+    # binding.pry
+    false
   end
 
   def show?
-    true
+    false
   end
 
   def create?
-    manage?
+    false
   end
 
   def new?
@@ -29,7 +30,7 @@ class ApplicationPolicy
   end
 
   def update?
-    manage?
+    false
   end
 
   def edit?
@@ -37,7 +38,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    manage?
+    false
   end
 
   class Scope
