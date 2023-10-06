@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  match '*path', to: 'application#cors_preflight_check', via: :options
   # post 'sessions/create'
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
