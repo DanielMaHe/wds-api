@@ -6,19 +6,21 @@ class WorkersController < ApplicationController
 
   # GET /workers
   def index
+    authorized?
     @workers = Worker.all
-    render json: { current_user: current_user.username,
+    render json: { username: current_user.username,
                    workers: @workers }
   end
 
   # GET /workers/1
   def show
+    @worker.id == current_user.id || authorized?
     render json: @worker
   end
 
   # POST /workers
   def create
-    return unless authorize @worker
+    authorized?
 
     @worker = Worker.new(worker_params)
 
@@ -31,6 +33,7 @@ class WorkersController < ApplicationController
 
   # PATCH/PUT /workers/1
   def update
+    authorized?
     if @worker.update(worker_params)
       render json: @worker
     else
@@ -40,18 +43,21 @@ class WorkersController < ApplicationController
 
   # DELETE /workers/1
   def destroy
+    authorized?
     @worker.destroy
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  def authorized?
+    authorize current_user
+  end
+
   def set_worker
     @worker = Worker.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def worker_params
-    params.require(:worker).permit(:username, :password, :isAdmin)
+    params.require(:worker).permit(:username, :mail, :password, :password_confirmation, :isAdmin)
   end
 end
