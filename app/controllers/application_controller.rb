@@ -3,8 +3,10 @@
 # some doc
 class ApplicationController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
+
   include Pundit::Authorization
-  before_action :authorize
+
+  before_action :authorize_bycript
 
   # before_action :authenticate_worker!
   # before_action :require_login
@@ -13,7 +15,7 @@ class ApplicationController < ActionController::API
     authenticate_token
   end
 
-  def authorize
+  def authorize_bycript
     return if authenticate_token
 
     respond_unauthorized('Access Desnied')
