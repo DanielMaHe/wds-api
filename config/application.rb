@@ -26,4 +26,14 @@ module WdsApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
   end
+
+  # config/application.rb o config/initializers/cors.rb
+
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins '*' # Esto permite todas las solicitudes. En producción, especifica el origen de tu aplicación React.
+    resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
+  end
+end
+
 end
