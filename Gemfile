@@ -53,3 +53,6 @@ gem 'carrierwave'
 gem 'pundit', '~> 2.3'
 
 gem 'pry', '~> 0.14.2'
+
+gem 'rack-cors'
+
