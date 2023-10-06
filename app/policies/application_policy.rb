@@ -8,7 +8,7 @@ class ApplicationPolicy
     @record = record
   end
 
-  def manage?
+  def admin?
     user.admin?
   end
 
