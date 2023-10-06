@@ -2,7 +2,7 @@
 
 class CustomersController < ApplicationController
   before_action :set_customer, only: %i[show update destroy]
-  skip_before_action :authorize, only: :create
+  skip_before_action :authorize_bycript, only: :create
   # GET /customers
   def index
     @customers = Customer.all

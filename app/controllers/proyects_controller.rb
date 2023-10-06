@@ -4,7 +4,7 @@
 # Can only be modified under authorization
 class ProyectsController < ApplicationController
   # before_action :set_proyect, only: %i[show update destroy]
-  skip_before_action :authorize, only: %i[index show]
+  skip_before_action :authorize_bycript, only: %i[index show]
 
   # GET /proyects
   def index
